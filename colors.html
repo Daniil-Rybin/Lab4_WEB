@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Случайные цвета</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <script>
+    const ROWS = 9;
+    const COLS = 9;
+
+    function randomComponent() {
+      return Math.round(255.0 * Math.random());
+    }
+
+    function randomColor() {
+      let r = randomComponent();
+      let g = randomComponent();
+      let b = randomComponent();
+      return "rgb(" + r + "," + g + "," + b + ")";
+    }
+
+    let html = "<table>";
+    for (let i = 0; i < ROWS; i++) {
+      html += "<tr>";
+      for (let j = 0; j < COLS; j++) {
+        let color = randomColor();
+        html += "<td style='background-color:" + color + "'>" + color + "</td>";
+      }
+      html += "</tr>";
+    }
+    html += "</table>";
+
+    document.write(html);
+  </script>
+</body>
+</html>
